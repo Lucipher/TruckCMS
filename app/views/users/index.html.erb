@@ -1,0 +1,13 @@
+<h3>Users</h3>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
+	  <% if user.approved == false %>
+		<%= link_to "approve", :action => 'approve_user', :id => user.id  %> 
+	  <% end %>
+	
+    </li>
+  <% end %>
+
+</ul>
