@@ -14,10 +14,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-  def approve_user
-    @user = User.find(params[:id])
-    @user.approved = true
-    @user.save!
+  def approve
     redirect_to :index
   end
 
