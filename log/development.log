@@ -58606,3 +58606,171 @@ Served asset /truck_fleets.js - 304 Not Modified (1ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
 Served asset /application.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-27 00:05:31 +1000
+  [1m[36mUser Load (21.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by CalendarController#index as HTML
+  Rendered calendar/index.html.erb within layouts/application (3.3ms)
+Compiled application.css  (156ms)  (pid 15220)
+Compiled jquery.js  (4ms)  (pid 15220)
+Compiled jquery_ujs.js  (0ms)  (pid 15220)
+Compiled application.js  (557ms)  (pid 15220)
+  [1m[35m (24.6ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (319.1ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 4260ms (Views: 4234.4ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /fleets.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /calendar.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /calendar.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /fleets.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /services.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /report.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:37 +1000
+Served asset /truck_fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /truck_fleets.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (33ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /report.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /repairers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /services.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (22ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /application.js - 304 Not Modified (43ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
+Served asset /repairers.js - 304 Not Modified (1ms)
