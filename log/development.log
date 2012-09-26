@@ -56295,3 +56295,2314 @@ Served asset /truck_fleets.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 22:08:10 +1000
 Served asset /application.js - 304 Not Modified (2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateFleetServiceInfos (20120926102530)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "fleet_service_infos"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926102530'[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+Migrating to CreateServices (20120926094532)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "services"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926094532'[0m
+  [1m[35m (1.8ms)[0m  commit transaction
+Migrating to CreateContactRepairers (20120926091237)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "contact_repairers"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926091237'[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+Migrating to CreateRepairers (20120926050708)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "repairers"
+  [1m[36m (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926050708'[0m
+  [1m[35m (2.1ms)[0m  commit transaction
+Migrating to AddTruckFleetIdToFleets (20120926043046)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_fleets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pic" varchar(255), "make" varchar(255), "model" varchar(255), "year" integer, "VIN" varchar(255), "registration" varchar(255), "fleet_number" varchar(255), "auto_services" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "truck_fleet_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("fleets")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "fleets"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "fleets"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "fleets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pic" varchar(255), "make" varchar(255), "model" varchar(255), "year" integer, "VIN" varchar(255), "registration" varchar(255), "fleet_number" varchar(255), "auto_services" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_fleets")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_fleets"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "altered_fleets"[0m
+  [1m[35m (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926043046'
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFleets (20120926015039)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "fleets"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926015039'
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateContactTruckFleets (20120926004411)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "contact_truck_fleets"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926004411'
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTruckFleets (20120926003151)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "truck_fleets"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120926003151'
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddAdminToUsers (20120924071411)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255), "approved" boolean DEFAULT 'f' NOT NULL, "admin" boolean DEFAULT 'f') [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_approved')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "temp_index_altered_users_on_approved" ON "altered_users" ("approved")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_approved')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "temp_index_altered_users_on_reset_password_token" ON "altered_users" ("reset_password_token")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_approved')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name","approved","admin") VALUES (1, 'admin@example.com', '$2a$10$2EDROKobtK.dku0M4ZbvCucSKvtp19mVlBrk0vgy/HCQ21.Lxud3.', NULL, NULL, NULL, 2, '2012-09-26 11:44:51.054036', '2012-09-26 11:20:28.016369', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:06.955783', '2012-09-26 11:44:51.054684', 'Administrator', 't', 'f')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name","approved","admin") VALUES (2, 'user@example.com', '$2a$10$kUH8eczRo4NqHDGHyESJBexRGGfrhH6iSHJUXvAXQDLfoGqz8jhWW', NULL, NULL, NULL, 4, '2012-09-26 12:04:50.803234', '2012-09-26 11:44:37.443154', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:07.133985', '2012-09-26 12:04:50.803835', 'User', 't', 'f')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255), "approved" boolean DEFAULT 'f' NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_approved')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_users_on_approved" ON "users" ("approved")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name","approved") VALUES (1, 'admin@example.com', '$2a$10$2EDROKobtK.dku0M4ZbvCucSKvtp19mVlBrk0vgy/HCQ21.Lxud3.', NULL, NULL, NULL, 2, '2012-09-26 11:44:51.054036', '2012-09-26 11:20:28.016369', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:06.955783', '2012-09-26 11:44:51.054684', 'Administrator', 't')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name","approved") VALUES (2, 'user@example.com', '$2a$10$kUH8eczRo4NqHDGHyESJBexRGGfrhH6iSHJUXvAXQDLfoGqz8jhWW', NULL, NULL, NULL, 4, '2012-09-26 12:04:50.803234', '2012-09-26 11:44:37.443154', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:07.133985', '2012-09-26 12:04:50.803835', 'User', 't')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_users"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120924071411'[0m
+  [1m[35m (2.5ms)[0m  commit transaction
+Migrating to AddApprovedToUser (20120924064414)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_approved')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.3ms)[0m  DROP INDEX "index_users_on_approved"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255), "approved" boolean DEFAULT 'f' NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "temp_index_altered_users_on_reset_password_token" ON "altered_users" ("reset_password_token")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_reset_password_token')
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name","approved") VALUES (1, 'admin@example.com', '$2a$10$2EDROKobtK.dku0M4ZbvCucSKvtp19mVlBrk0vgy/HCQ21.Lxud3.', NULL, NULL, NULL, 2, '2012-09-26 11:44:51.054036', '2012-09-26 11:20:28.016369', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:06.955783', '2012-09-26 11:44:51.054684', 'Administrator', 't')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name","approved") VALUES (2, 'user@example.com', '$2a$10$kUH8eczRo4NqHDGHyESJBexRGGfrhH6iSHJUXvAXQDLfoGqz8jhWW', NULL, NULL, NULL, 4, '2012-09-26 12:04:50.803234', '2012-09-26 11:44:37.443154', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:07.133985', '2012-09-26 12:04:50.803835', 'User', 't')
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_email')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name") VALUES (1, 'admin@example.com', '$2a$10$2EDROKobtK.dku0M4ZbvCucSKvtp19mVlBrk0vgy/HCQ21.Lxud3.', NULL, NULL, NULL, 2, '2012-09-26 11:44:51.054036', '2012-09-26 11:20:28.016369', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:06.955783', '2012-09-26 11:44:51.054684', 'Administrator')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name") VALUES (2, 'user@example.com', '$2a$10$kUH8eczRo4NqHDGHyESJBexRGGfrhH6iSHJUXvAXQDLfoGqz8jhWW', NULL, NULL, NULL, 4, '2012-09-26 12:04:50.803234', '2012-09-26 11:44:37.443154', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:07.133985', '2012-09-26 12:04:50.803835', 'User')[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120924064414'[0m
+  [1m[35m (2.8ms)[0m  commit transaction
+Migrating to AddNameToUsers (20120418171112)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "temp_index_altered_users_on_reset_password_token" ON "altered_users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_reset_password_token')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name") VALUES (1, 'admin@example.com', '$2a$10$2EDROKobtK.dku0M4ZbvCucSKvtp19mVlBrk0vgy/HCQ21.Lxud3.', NULL, NULL, NULL, 2, '2012-09-26 11:44:51.054036', '2012-09-26 11:20:28.016369', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:06.955783', '2012-09-26 11:44:51.054684', 'Administrator')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","name") VALUES (2, 'user@example.com', '$2a$10$kUH8eczRo4NqHDGHyESJBexRGGfrhH6iSHJUXvAXQDLfoGqz8jhWW', NULL, NULL, NULL, 4, '2012-09-26 12:04:50.803234', '2012-09-26 11:44:37.443154', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:07.133985', '2012-09-26 12:04:50.803835', 'User')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_users"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at") VALUES (1, 'admin@example.com', '$2a$10$2EDROKobtK.dku0M4ZbvCucSKvtp19mVlBrk0vgy/HCQ21.Lxud3.', NULL, NULL, NULL, 2, '2012-09-26 11:44:51.054036', '2012-09-26 11:20:28.016369', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:06.955783', '2012-09-26 11:44:51.054684')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at") VALUES (2, 'user@example.com', '$2a$10$kUH8eczRo4NqHDGHyESJBexRGGfrhH6iSHJUXvAXQDLfoGqz8jhWW', NULL, NULL, NULL, 4, '2012-09-26 12:04:50.803234', '2012-09-26 11:44:37.443154', '127.0.0.1', '127.0.0.1', '2012-09-26 11:20:07.133985', '2012-09-26 12:04:50.803835')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_users"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120418171112'
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Migrating to RolifyCreateRoles (20120418171110)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users_roles")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_roles_on_user_id_and_role_id')
+  [1m[36m (0.3ms)[0m  [1mDROP INDEX "index_users_roles_on_user_id_and_role_id"[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("roles")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_roles_on_name_and_resource_type_and_resource_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_roles_on_name')
+  [1m[36m (0.4ms)[0m  [1mDROP INDEX "index_roles_on_name_and_resource_type_and_resource_id"[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("roles")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_roles_on_name')[0m
+  [1m[35m (0.2ms)[0m  DROP INDEX "index_roles_on_name"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "users_roles"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "roles"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120418171110'[0m
+  [1m[35m (2.8ms)[0m  commit transaction
+Migrating to DeviseCreateUsers (20120418171104)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.3ms)[0m  [1mDROP INDEX "index_users_on_reset_password_token"[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.2ms)[0m  DROP INDEX "index_users_on_email"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120418171104'
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("contacts_repaiers")
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20120418171104)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120418171104')
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to RolifyCreateRoles (20120418171110)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "resource_id" integer, "resource_type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "users_roles" ("user_id" integer, "role_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("roles")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_roles_on_name" ON "roles" ("name")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("roles")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_roles_on_name')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_roles_on_name_and_resource_type_and_resource_id" ON "roles" ("name", "resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users_roles")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_users_roles_on_user_id_and_role_id" ON "users_roles" ("user_id", "role_id")[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120418171110')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddNameToUsers (20120418171112)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "name" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120418171112')
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddApprovedToUser (20120924064414)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "approved" boolean DEFAULT 'f' NOT NULL[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_users_on_approved" ON "users" ("approved")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120924064414')
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddAdminToUsers (20120924071411)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120924071411')
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTruckFleets (20120926003151)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "truck_fleets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trading_name_of_business" varchar(255), "street" varchar(255), "street_2" varchar(255), "suburb" varchar(255), "state" varchar(255), "postcode" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926003151')
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateContactTruckFleets (20120926004411)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "contact_truck_fleets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "main" boolean, "title" varchar(255), "mobile" varchar(255), "email" varchar(255), "truck_fleet_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926004411')
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFleets (20120926015039)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "fleets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pic" varchar(255), "make" varchar(255), "model" varchar(255), "year" integer, "VIN" varchar(255), "registration" varchar(255), "fleet_number" varchar(255), "auto_services" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926015039')
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddTruckFleetIdToFleets (20120926043046)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "fleets" ADD "truck_fleet_id" integer[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926043046')
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRepairers (20120926050708)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "repairers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "business_name" varchar(255), "picture" varchar(255), "street_address_1" varchar(255), "street_address_2" varchar(255), "suburb" varchar(255), "state" varchar(255), "postcode" integer, "hour_service_24" boolean, "phone_number" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926050708')
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateContactRepairers (20120926091237)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "contact_repairers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "phone" varchar(255), "repairer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926091237')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateServices (20120926094532)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "services" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fleet_id" integer, "repairer_id" integer, "service_type" varchar(255), "warranty" varchar(255), "damage" text, "repair" varchar(255), "self_service" boolean, "KM_since_last_service" float, "time_since_last_service" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926094532')
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFleetServiceInfos (20120926102530)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "fleet_service_infos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fleet_id" integer, "service_id" integer, "km_since_last_service" float, "time_since_last_service" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120926102530')
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("contact_repairers")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("contact_truck_fleets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("contacts_repaiers")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("fleet_service_infos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("fleets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("repairers")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("roles")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_roles_on_name_and_resource_type_and_resource_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_roles_on_name')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("services")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("truck_fleets")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_approved')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users_roles")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_roles_on_user_id_and_role_id')
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (42.1ms)[0m  INSERT INTO "users" ("admin", "approved", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["admin", false], ["approved", true], ["created_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "admin@example.com"], ["encrypted_password", "$2a$10$p8T/VLc/SxqBj2cXVOGTVeImL0FlzsO.KDaBjZh737M.leA15rh9q"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "Administrator"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00]]
+
+Sent mail to admin@example.com (17ms)
+Date: Wed, 26 Sep 2012 23:01:51 +1000
+From: myasnikovdaniil@gmail.com
+To: Administrator <admin@example.com>
+Message-ID: <5062fcbf9a7a2_3a043fdf9d43a8ac19591@Daniels-MacBook-Pro.local.mail>
+Subject: Registered
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("admin", "approved", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["admin", false], ["approved", true], ["created_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$10$8k.HUMebX1Gy.hzEX8zavesPpBeuTWd/5oTuDRlC3Wks5Z14w8qGC"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00]]
+
+Sent mail to user@example.com (3ms)
+Date: Wed, 26 Sep 2012 23:01:51 +1000
+From: myasnikovdaniil@gmail.com
+To: User <user@example.com>
+Message-ID: <5062fcbfb4570_3a043fdf9d43a8ac19610@Daniels-MacBook-Pro.local.mail>
+Subject: Registered
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."name" = 'admin' AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "roles" ("created_at", "name", "resource_id", "resource_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00], ["name", "admin"], ["resource_id", nil], ["resource_type", nil], ["updated_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT 1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND "roles"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "users_roles" ("user_id", "role_id") VALUES (1, 1)[0m
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "14 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Fleet Guard"], ["updated_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "2 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Guard Systems"], ["updated_at", Wed, 26 Sep 2012 13:01:51 UTC +00:00]]
+  [1m[35m (2.6ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.4ms)[0m  [1mINSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 26 Sep 2012 13:03:33 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "14 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Fleet Guard"], ["updated_at", Wed, 26 Sep 2012 13:03:33 UTC +00:00]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 26 Sep 2012 13:03:33 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "2 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Guard Systems"], ["updated_at", Wed, 26 Sep 2012 13:03:33 UTC +00:00]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "14 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Fleet Guard"], ["updated_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "2 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Guard Systems"], ["updated_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["VIN", "ABC1243"], ["auto_services", false], ["created_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["fleet_number", "1234"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_1"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["year", 1988]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["VIN", "12CDA43"], ["auto_services", true], ["created_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["fleet_number", "3455"], ["make", "make_2"], ["model", "model_2"], ["pic", nil], ["registration", "rego_2"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["year", 2005]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["VIN", "ABC1243"], ["auto_services", false], ["created_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["fleet_number", "1234"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_1"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["year", 1988]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["VIN", "12CDA43"], ["auto_services", true], ["created_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["fleet_number", "3455"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_2"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:04:20 UTC +00:00], ["year", 2005]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "14 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Fleet Guard"], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "2 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Guard Systems"], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["VIN", "ABC1243"], ["auto_services", false], ["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["fleet_number", "1234"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_1"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["year", 1988]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["VIN", "12CDA43"], ["auto_services", true], ["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["fleet_number", "3455"], ["make", "make_2"], ["model", "model_2"], ["pic", nil], ["registration", "rego_2"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["year", 2005]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["VIN", "ABC1243"], ["auto_services", false], ["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["fleet_number", "1234"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_1"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["year", 1988]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["VIN", "12CDA43"], ["auto_services", true], ["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["fleet_number", "3455"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_2"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["year", 2005]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "repairers" ("business_name", "created_at", "hour_service_24", "phone_number", "picture", "postcode", "state", "street_address_1", "street_address_2", "suburb", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["business_name", "Repairer_1"], ["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["hour_service_24", true], ["phone_number", "+61 449 904 777"], ["picture", nil], ["postcode", 2085], ["state", "NSW"], ["street_address_1", "_9 Wearden St."], ["street_address_2", ""], ["suburb", "Belrose"], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "repairers" ("business_name", "created_at", "hour_service_24", "phone_number", "picture", "postcode", "state", "street_address_1", "street_address_2", "suburb", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["business_name", "Repairer_2"], ["created_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00], ["hour_service_24", true], ["phone_number", "+61 449 904 777"], ["picture", nil], ["postcode", 2112], ["state", "NSW"], ["street_address_1", "9 George St."], ["street_address_2", ""], ["suburb", "Ryde"], ["updated_at", Wed, 26 Sep 2012 13:05:06 UTC +00:00]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "14 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Fleet Guard"], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "truck_fleets" ("created_at", "postcode", "state", "street", "street_2", "suburb", "trading_name_of_business", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["postcode", 2086], ["state", "NSW"], ["street", "2 Rodborough road"], ["street_2", ""], ["suburb", "French Forest"], ["trading_name_of_business", "Guard Systems"], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["VIN", "ABC1243"], ["auto_services", false], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["fleet_number", "1234"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_1"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["year", 1988]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["VIN", "12CDA43"], ["auto_services", true], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["fleet_number", "3455"], ["make", "make_2"], ["model", "model_2"], ["pic", nil], ["registration", "rego_2"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["year", 2005]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["VIN", "ABC1243"], ["auto_services", false], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["fleet_number", "1234"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_1"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["year", 1988]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "fleets" ("VIN", "auto_services", "created_at", "fleet_number", "make", "model", "pic", "registration", "truck_fleet_id", "updated_at", "year") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["VIN", "12CDA43"], ["auto_services", true], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["fleet_number", "3455"], ["make", "make_1"], ["model", "model_2"], ["pic", nil], ["registration", "rego_2"], ["truck_fleet_id", 1], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["year", 2005]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "repairers" ("business_name", "created_at", "hour_service_24", "phone_number", "picture", "postcode", "state", "street_address_1", "street_address_2", "suburb", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["business_name", "Repairer_1"], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["hour_service_24", true], ["phone_number", "+61 449 904 777"], ["picture", nil], ["postcode", 2085], ["state", "NSW"], ["street_address_1", "_9 Wearden St."], ["street_address_2", ""], ["suburb", "Belrose"], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "repairers" ("business_name", "created_at", "hour_service_24", "phone_number", "picture", "postcode", "state", "street_address_1", "street_address_2", "suburb", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["business_name", "Repairer_2"], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["hour_service_24", true], ["phone_number", "+61 449 904 777"], ["picture", nil], ["postcode", 2112], ["state", "NSW"], ["street_address_1", "9 George St."], ["street_address_2", ""], ["suburb", "Ryde"], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "services" ("KM_since_last_service", "created_at", "damage", "fleet_id", "repair", "repairer_id", "self_service", "service_type", "time_since_last_service", "updated_at", "warranty") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["KM_since_last_service", 1000.0], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["damage", "N/A"], ["fleet_id", 3], ["repair", "N/A"], ["repairer_id", 1], ["self_service", false], ["service_type", "Scheduled"], ["time_since_last_service", 240.0], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["warranty", "N/A"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "services" ("KM_since_last_service", "created_at", "damage", "fleet_id", "repair", "repairer_id", "self_service", "service_type", "time_since_last_service", "updated_at", "warranty") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["KM_since_last_service", 1000.0], ["created_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["damage", "N/A"], ["fleet_id", 2], ["repair", "N/A"], ["repairer_id", 1], ["self_service", false], ["service_type", "Scheduled"], ["time_since_last_service", 240.0], ["updated_at", Wed, 26 Sep 2012 13:05:46 UTC +00:00], ["warranty", "N/A"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-26 23:06:07 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 627ms (Views: 574.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /application.css - 304 Not Modified (25ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /calendar.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /fleets.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /repairers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /report.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /services.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /truck_fleets.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (76ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (35ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /calendar.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /repairers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /report.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /services.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /truck_fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:08 +1000
+Served asset /application.js - 304 Not Modified (21ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-09-26 23:06:20 +1000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BHnuRxlAmtxUtQ3POYAPyPcxh9fYnB5lil1YA/AJrDI=", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = '2012-09-26 13:06:21.000222', "current_sign_in_at" = '2012-09-26 13:06:21.000222', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-09-26 13:06:21.001217' WHERE "users"."id" = 1[0m
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by CalendarController#index as HTML
+  Rendered calendar/index.html.erb within layouts/application (0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (59.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 123.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /truck_fleets.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:21 +1000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/truck_fleets" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Processing by TruckFleetsController#index as HTML
+  [1m[36mTruckFleet Load (0.2ms)[0m  [1mSELECT "truck_fleets".* FROM "truck_fleets" [0m
+  Rendered truck_fleets/index.html.erb within layouts/application (13.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (4.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 42.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:23 +1000
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/fleets" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Processing by FleetsController#index as HTML
+  [1m[35mFleet Load (0.2ms)[0m  SELECT "fleets".* FROM "fleets" 
+  Rendered fleets/index.html.erb within layouts/application (15.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 55ms (Views: 42.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:29 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /bootstrap.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:30 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/repairers" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Processing by RepairersController#index as HTML
+  [1m[36mRepairer Load (0.1ms)[0m  [1mSELECT "repairers".* FROM "repairers" [0m
+  Rendered repairers/index.html.erb within layouts/application (8.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 56ms (Views: 43.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:33 +1000
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2012-09-26 23:06:43 +1000
+Processing by ServicesController#index as HTML
+  [1m[35mService Load (0.1ms)[0m  SELECT "services".* FROM "services" 
+  Rendered services/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (35.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 76ms (Views: 63.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:43 +1000
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:43 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /bootstrap.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:44 +1000
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Processing by ReportController#index as HTML
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT "services".* FROM "services" [0m
+  [1m[35mFleet Load (0.2ms)[0m  SELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3
+  [1m[36mFleet Load (0.1ms)[0m  [1mSELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 2[0m
+  Rendered report/index.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (4.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 80.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /fleets.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /truck_fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:06:46 +1000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:07:30 +1000
+Processing by ReportController#index as HTML
+  [1m[35mService Load (0.1ms)[0m  SELECT "services".* FROM "services" 
+  [1m[36mFleet Load (0.2ms)[0m  [1mSELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3[0m
+  Rendered report/index.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `model' for #<Array:0x007f850d8a7b60>):
+    17:   <tbody>
+    18:     <% @services.each do |service| %>
+    19:       <tr>
+    20:         <td><%= Fleet.find(:all, :conditions => {:id => service.fleet_id}).model  %></td>
+    21:  		<td><%= service.service_type %></td>
+    22: 		<td><%= service.warranty %></td>
+    23: 		<td><%= service.damage %></td>
+  app/views/report/index.html.erb:20:in `block in _app_views_report_index_html_erb___818597937941372744_70104717254620'
+  app/views/report/index.html.erb:18:in `each'
+  app/views/report/index.html.erb:18:in `_app_views_report_index_html_erb___818597937941372744_70104717254620'
+  app/controllers/report_controller.rb:4:in `index'
+
+
+  Rendered /Users/danielmyasnikov/.rvm/gems/ruby-1.9.3-p0@rails-3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/danielmyasnikov/.rvm/gems/ruby-1.9.3-p0@rails-3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/danielmyasnikov/.rvm/gems/ruby-1.9.3-p0@rails-3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.5ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Processing by ReportController#index as HTML
+  [1m[35mService Load (0.2ms)[0m  SELECT "services".* FROM "services" 
+  [1m[36mFleet Load (0.1ms)[0m  [1mSELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3[0m
+  [1m[35mFleet Load (0.1ms)[0m  SELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 2
+  Rendered report/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 92ms (Views: 90.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:38 +1000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Processing by ReportController#index as HTML
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT "services".* FROM "services" [0m
+  [1m[35mFleet Load (0.2ms)[0m  SELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3 LIMIT 1
+  [1m[36mFleet Load (0.1ms)[0m  [1mSELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 2 LIMIT 1[0m
+  Rendered report/index.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /truck_fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:47 +1000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Processing by ReportController#index as HTML
+  [1m[35mService Load (0.2ms)[0m  SELECT "services".* FROM "services" 
+  [1m[36mFleet Load (0.2ms)[0m  [1mSELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3 LIMIT 1[0m
+  [1m[35mFleet Load (0.1ms)[0m  SELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 2 LIMIT 1
+  Rendered report/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /fleets.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:52 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /fleets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:07:53 +1000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:07:57 +1000
+Processing by ReportController#index as HTML
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT "services".* FROM "services" [0m
+  [1m[35mFleet Load (0.2ms)[0m  SELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3 LIMIT 1
+  Rendered report/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `rego' for #<Fleet:0x007f850daca640>):
+    17:   <tbody>
+    18:     <% @services.each do |service| %>
+    19:       <tr>
+    20:         <td><%= Fleet.find(:first, :conditions => {:id => service.fleet_id}).rego  %></td>
+    21:  		<td><%= service.service_type %></td>
+    22: 		<td><%= service.warranty %></td>
+    23: 		<td><%= service.damage %></td>
+  app/views/report/index.html.erb:20:in `block in _app_views_report_index_html_erb___818597937941372744_70104718137100'
+  app/views/report/index.html.erb:18:in `each'
+  app/views/report/index.html.erb:18:in `_app_views_report_index_html_erb___818597937941372744_70104718137100'
+  app/controllers/report_controller.rb:4:in `index'
+
+
+  Rendered /Users/danielmyasnikov/.rvm/gems/ruby-1.9.3-p0@rails-3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/danielmyasnikov/.rvm/gems/ruby-1.9.3-p0@rails-3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/danielmyasnikov/.rvm/gems/ruby-1.9.3-p0@rails-3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.6ms)
+
+
+Started GET "/report/index" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Processing by ReportController#index as HTML
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT "services".* FROM "services" [0m
+  [1m[35mFleet Load (0.2ms)[0m  SELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 3 LIMIT 1
+  [1m[36mFleet Load (0.1ms)[0m  [1mSELECT "fleets".* FROM "fleets" WHERE "fleets"."id" = 2 LIMIT 1[0m
+  Rendered report/index.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (5.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/calendar.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /calendar.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /contact_truck_fleets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /contacts_repaiers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/repairers.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /repairers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /report.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /services.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.css?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /truck_fleets.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/calendar.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /calendar.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contact_truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /contact_truck_fleets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/contacts_repaiers.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /contacts_repaiers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /repairers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/report.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /report.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/truck_fleets.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /truck_fleets.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-26 23:08:02 +1000
+Served asset /application.js - 304 Not Modified (1ms)
