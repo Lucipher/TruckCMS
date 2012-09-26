@@ -1,4 +1,10 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  get "report/index"
+
+  get "report/show"
+
+  resources :services
+
   resources :contacts_repaiers
 
   resources :repairers

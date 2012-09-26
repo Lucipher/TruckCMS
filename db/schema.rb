@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926091237) do
+ActiveRecord::Schema.define(:version => 20120926102530) do
 
   create_table "contact_repairers", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(:version => 20120926091237) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "fleet_service_infos", :force => true do |t|
+    t.integer  "fleet_id"
+    t.integer  "service_id"
+    t.float    "km_since_last_service"
+    t.float    "time_since_last_service"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "fleets", :force => true do |t|
@@ -78,6 +87,20 @@ ActiveRecord::Schema.define(:version => 20120926091237) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "services", :force => true do |t|
+    t.integer  "fleet_id"
+    t.integer  "repairer_id"
+    t.string   "service_type"
+    t.string   "warranty"
+    t.text     "damage"
+    t.string   "repair"
+    t.boolean  "self_service"
+    t.float    "KM_since_last_service"
+    t.float    "time_since_last_service"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "truck_fleets", :force => true do |t|
     t.string   "trading_name_of_business"

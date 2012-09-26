@@ -3,4 +3,5 @@ class Repairer < ActiveRecord::Base
                   :postcode, :state, :street_address_1, :street_address_2, :suburb
   has_many :contact_repairers, :dependent => :destroy
   accepts_nested_attributes_for :contact_repairers#, :reject_if => lambda { |a| a[:email].blank? }, :allow_destroy => true
+  has_many :services
 end
