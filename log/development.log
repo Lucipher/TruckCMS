@@ -58774,3 +58774,5 @@ Served asset /home.js - 304 Not Modified (2ms)
 
 Started GET "/assets/repairers.js?body=1" for 127.0.0.1 at 2012-09-27 00:05:38 +1000
 Served asset /repairers.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml

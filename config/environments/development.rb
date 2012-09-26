@@ -31,7 +31,7 @@ Rails3BootstrapDeviseCancan::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-  config.assets.compile = true
+
   
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
