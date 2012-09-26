@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926043046) do
+ActiveRecord::Schema.define(:version => 20120926091237) do
+
+  create_table "contact_repairers", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "repairer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "contact_truck_fleets", :force => true do |t|
     t.boolean  "main"
@@ -21,6 +30,14 @@ ActiveRecord::Schema.define(:version => 20120926043046) do
     t.integer  "truck_fleet_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "contacts_repaiers", :force => true do |t|
+    t.string   "name"
+    t.string   "mobile"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "fleets", :force => true do |t|
@@ -35,6 +52,20 @@ ActiveRecord::Schema.define(:version => 20120926043046) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "truck_fleet_id"
+  end
+
+  create_table "repairers", :force => true do |t|
+    t.string   "business_name"
+    t.string   "picture"
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "suburb"
+    t.string   "state"
+    t.integer  "postcode"
+    t.boolean  "hour_service_24"
+    t.string   "phone_number"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "roles", :force => true do |t|

@@ -25,6 +25,10 @@ class RepairersController < ApplicationController
   # GET /repairers/new.json
   def new
     @repairer = Repairer.new
+    
+    3.times do
+      @repairer.contact_repairers.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb
