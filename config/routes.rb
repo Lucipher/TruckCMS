@@ -1,4 +1,14 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  get "calendar/index"
+
+  get "calendar/show"
+
+  get "calendar/edit"
+
+  get "calendar/update"
+
+  get "calendar/destroy"
+
   get "report/index"
 
   get "report/show"
@@ -16,9 +26,13 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :truck_fleets
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'calendar#index'
   end
-  root :to => "home#index"
+  unauthenticated :user do
+    devise_scope :user do 
+      get "/" => "devise/sessions#new"
+    end
+  end
   devise_for :users
   resources :users, :only => [:show, :index]
 end
