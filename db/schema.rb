@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926004411) do
+ActiveRecord::Schema.define(:version => 20120926043046) do
 
   create_table "contact_truck_fleets", :force => true do |t|
     t.boolean  "main"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(:version => 20120926004411) do
     t.integer  "truck_fleet_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "fleets", :force => true do |t|
+    t.string   "pic"
+    t.string   "make"
+    t.string   "model"
+    t.integer  "year"
+    t.string   "VIN"
+    t.string   "registration"
+    t.string   "fleet_number"
+    t.boolean  "auto_services"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "truck_fleet_id"
   end
 
   create_table "roles", :force => true do |t|

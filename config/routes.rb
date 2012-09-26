@@ -1,4 +1,10 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  resources :contacts_repaiers
+
+  resources :repairers
+
+  resources :fleets
+
   resources :contact_truck_fleets
 
   resources :truck_fleets

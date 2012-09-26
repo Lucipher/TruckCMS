@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Business name:</b>
+  <%= @repairer.business_name %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @repairer.picture %>
+</p>
+
+<p>
+  <b>Street address 1:</b>
+  <%= @repairer.street_address_1 %>
+</p>
+
+<p>
+  <b>Street address 2:</b>
+  <%= @repairer.street_address_2 %>
+</p>
+
+<p>
+  <b>Suburb:</b>
+  <%= @repairer.suburb %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @repairer.state %>
+</p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @repairer.postcode %>
+</p>
+
+<p>
+  <b>24 hour service:</b>
+  <%= @repairer.hour_service_24 %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @repairer.phone_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_repairer_path(@repairer) %> |
+<%= link_to 'Back', repairers_path %>

@@ -1,0 +1,39 @@
+<h1>Listing repairers</h1>
+
+<table>
+  <tr>
+    <th>Business name</th>
+    <th>Picture</th>
+    <th>Street address 1</th>
+    <th>Street address 2</th>
+    <th>Suburb</th>
+    <th>State</th>
+    <th>Postcode</th>
+    <th>24 hour service</th>
+    <th>Phone number</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @repairers.each do |repairer| %>
+  <tr>
+    <td><%= repairer.business_name %></td>
+    <td><%= repairer.picture %></td>
+    <td><%= repairer.street_address_1 %></td>
+    <td><%= repairer.street_address_2 %></td>
+    <td><%= repairer.suburb %></td>
+    <td><%= repairer.state %></td>
+    <td><%= repairer.postcode %></td>
+    <td><%= repairer.hour_service_24 %></td>
+    <td><%= repairer.phone_number %></td>
+    <td><%= link_to 'Show', repairer %></td>
+    <td><%= link_to 'Edit', edit_repairer_path(repairer) %></td>
+    <td><%= link_to 'Destroy', repairer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Repairer', new_repairer_path %>

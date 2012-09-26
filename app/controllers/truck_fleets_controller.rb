@@ -14,7 +14,7 @@ class TruckFleetsController < ApplicationController
   # GET /truck_fleets/1.json
   def show
     @truck_fleet = TruckFleet.find(params[:id])
-
+    @fleets = @truck_fleet.fleets
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @truck_fleet }
