@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
   
   def approve
-    redirect_to :index
+    redirect_to users_path
   end
 
 end

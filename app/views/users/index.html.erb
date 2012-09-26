@@ -1,16 +1,24 @@
 <h3>Users</h3>
-<ul class="users">
-  <%= form_for approve_users_path, :method => :put do %>
-  	<% @users.each do |user| %>
-	  <li>
-	    <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
-	    <% if user.approved == false %>
-		  <%= check_box_tag "user_ids[]", user.id %>
-		<% else %>
-		  - the user approved
-		<% end %>
-	  </li>
-	<% end %>
-	<%= submit_tag 'mark as approved' %>
-  <% end %>
-</ul>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Approved?</th>
+	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+	<td><%= user.approved %></td>
+    <td><%= link_to 'Show' %></td>
+    <td><%= link_to 'Edit' %></td>
+    <td><%= link_to 'Destroy' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
